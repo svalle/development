@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+   <head>
+      <title>Query by area with nearby</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+      <script type="text/javascript">
+      var map = null;
+      var queryKey = 'Tz0WsXIOvidIit9c02qr~V7Jjr040dL3ZhL-vTIhdhg~Akl-xwWpL-DrQ-CAYsudjsgCsIoNVTCTfFhQF_dYfYBEVl4EjL40nuqX99Ftcu2o';
+      var currInfobox;
+      var latitude = 40.83274904439099;
+      var longitude = -74.3163299560546935;
+      var distance = 5;
+      
+      function getMap()
+      {
+        map = new Microsoft.Maps.Map(document.getElementById('myMap'), {credentials: 'Tz0WsXIOvidIit9c02qr~V7Jjr040dL3ZhL-vTIhdhg~Akl-xwWpL-DrQ-CAYsudjsgCsIoNVTCTfFhQF_dYfYBEVl4EjL40nuqX99Ftcu2o'});
+        if (queryKey == 'Insert a valid Bing Maps key') {
+          alert('Insert key to make a valid REST service call');
+        }
+      } 
+      
+      function findLocations() {
+          if (queryKey == 'Insert a valid Bing Maps key') {
+              return;
+          }
+      
+          var spatialFilter = "spatialFilter=nearby(" + latitude + "," + longitude + ", 5)";
+          var select = "$select=EntityID,Latitude,Longitude,__Distance";
+          var top = "$top=3";
+          var format = "$format=json";
+
+          var sdsRequest = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops?" +
+                  spatialFilter + "&" +
+                  select + "&" +
+                  top + "&" +
+                  format + "&jsonp=SDSServiceCallback" + "&key=" + queryKey;
+
+          var mapscript = document.createElement('script');
+          mapscript.type = 'text/javascript';
+          mapscript.src = sdsRequest;
+          document.getElementById('myMap').appendChild(mapscript);
+      }
+
+      function SDSServiceCallback(result) {
+          map.setView({ zoom: 10, center: new Microsoft.Maps.Location(latitude, longitude) });
+          query_onQuerySuccess(result["d"]);
+      }
+
+      function query_onQuerySuccess(result) {
+          map.entities.clear();
+          var searchResults = result && result["results"];
+          if (searchResults) {
+              if (searchResults.length == 0) {
+                  alert("No results for the query");
+              }
+              else {
+                  for (var i = 0; i < searchResults.length; i++) {
+                      createMapPin(searchResults[i]);
+                  }
+              }
+          }
+      }
+
+      function createMapPin(result) {
+          if (result) {
+              var location = new Microsoft.Maps.Location(result.Latitude, result.Longitude);
+              var pin = new Microsoft.Maps.Pushpin(location);
+              Microsoft.Maps.Events.addHandler(pin, 'click', function () { showInfoBox(result) });
+              map.entities.push(pin);
+          }
+      }
+
+      function showInfoBox(result) {
+          if (currInfobox) {
+              map.entities.remove(currInfobox);
+          }
+
+          var location = new Microsoft.Maps.Location(result.Latitude, result.Longitude);
+          var decription = [];
+
+          for (var item in result) {
+              if (item === '__copyright' || item === '__metadata') {
+                  continue;
+              }
+
+              decription.push(item + ":" + result[item] + "<br/>");
+          }
+
+          currInfobox = new Microsoft.Maps.Infobox(location,
+               { title: "Title", description: decription.join(' '), showPointer: true});
+
+          currInfobox.setOptions({ visible: true });
+          map.entities.push(currInfobox);
+      }
+      
+      </script>
+   </head>
+   <body onload="getMap();">
+      <div id='myMap' style="position:relative; width:400px; height:400px;"></div>
+      <div><input type="button" value="Find Locations" onclick="findLocations();" /></div>
+   </body>
+</html>
