@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>Conoco Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Global CSS -->
+    <link href="css/global.css" rel="stylesheet">
+	<link href="css/icomoon.css" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <!-- Container starts -->
+    <div class="container no-gutter">
+
+        <!-- Main header starts -->
+        
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid no-gutter">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="/">
+                <img src="/img/common/logo.png" alt="" />
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="background: #ffffff">
+
+            <div class="visible-xs-block visible-s-block">
+                <a class="" href="/">
+                    <img class="logo-mobile" src="/img/common/logo-mobile.png" alt="" /></a>
+                <a class="close-nav" href="#">
+                    <img src="/img/common/close-nav.png" alt="" /></a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li class="active nav-item"><a href="/FindAStation.aspx">Find a Station</a></li>
+                <li class=" nav-item"><a href="/Promotions.aspx">Promotions</a></li>
+                <li class=" nav-item"><a href="/CardsAndRewards.aspx">Cards &amp; Rewards</a></li>
+                <li class=" nav-item"><a href="/QualityFuel.aspx">Quality Fuel</a></li>
+                
+            </ul>
+        </div>
+        <!-- end nav-collapse -->
+        <div class="mobile-miles-away visible-xs-block visible-s-block">
+            <img src="" alt="" />
+            <h2>2.5 Miles Away</h2>
+            <a href="#">+ More Info</a>
+        </div>
+    </div>
+    <!-- end container-fluid -->
+</nav>
+
+
+        <!-- Main header ends -->
+
+        <!-- Main content starts -->
+        <div class="container-fluid">
+            
+    
+
+<div class="row">
+
+    <div id="finder">
+        <div class="finder-box">
+
+            <div class="finder-box-header">
+                <div class="finder-box-input">
+                    <input type="text" value="" placeholder="enter location" id="addressLocation">
+                    <a id="pin-location">
+                        <span class="icon-icon_my_locatoin_pin">
+                <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+                </span>
+                    </a>
+                </div>
+                <div class="finder-box-filtersbutton">
+                    <a href="" class="dirButton white showFilter">Filters<span class="icon-circle-down arrow arrowDown"></span><span class="icon-circle-up arrow arrowUp"></span></a>
+                </div>
+            </div>
+
+            <div class="finder-filterOptions" style="display: none;">
+                <div class="finder-filterRow clearfix">    
+                <span class="titleRow">MILE RADIUS:</span>
+                   
+                <ul class="line-options clearfix miles-select">
+                        <li><a href="" data-range="5" class="active default">5MI <span class="icon-icon_checkmark check"></span></a></li>
+                        <li><a href="" data-range="10">10MI <span class="icon-icon_checkmark check"></span></a></li>
+                        <li><a href="" data-range="25">25MI <span class="icon-icon_checkmark check"></span></a></li>
+                        <li><a href="" data-range="50">50MI <span class="icon-icon_checkmark check"></span></a></li>
+                        <li><a href="" data-range="100">100MI <span class="icon-icon_checkmark check"></span></a></li>
+                    </ul>
+                </div>
+                <div class="finder-filterRow clearfix">
+                    <div class="col-md-4 first-column">
+                        <span class="titleRow">AMENITIES:</span>
+                        <ul class="filters clearfix type-select">
+                        <li><a href="" data-filter="CStore"><span class="icon-icon_conv_store icon"></span>Conv. Store <span class="icon-icon_checkmark check"></span></a></li>
+                        <li><a href="" data-filter="ATM"><span class="icon-icon_atm icon"></span>ATM <span class="icon-icon_checkmark check"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="filters clearfix type-select">
+                        <li><a href="" data-filter="KB"><span class="icon-icon_kickback icon"></span>Kickback <span class="icon-icon_checkmark check"></span></a></li>
+                        <li><a href="" data-filter="Diesel"><span class="icon-icon_diesel icon"></span>Diesel <span class="icon-icon_checkmark check"></span></a></li>
+                        <li><a href="" data-filter="FreeAir"><span class="icon-icon_free_air icon"></span>Free Air <span class="icon-icon_checkmark check"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                    <ul class="filters clearfix type-select">
+                        <li><a href="" data-filter="TFH"><span class="icon-icon_24hrs icon"></span>24 hrs. <span class="icon-icon_checkmark check"></span></a></li>
+                        <li><a href="" data-filter="Carwash"><span class="icon-icon_carwash icon"></span>Carwash <span class="icon-icon_checkmark check"></span></a></li>
+                        <li><a href="" data-filter="FastFlow"><span class="icon-icon_fast_flow icon"></span>Fast Flow <span class="icon-icon_checkmark check"></span></a></li>
+                    </ul>
+                    </div>
+                </div>
+           
+                <div class="finder-filterRow clearfix">
+                    <ul class="line-options apply-filter clearfix">
+                        <li><a href="" class="button bigbtn" id="ApplyFilter">Apply Filters</a></li>
+                        <li><a href="" class="NormalLink white reset">Reset</a></li>
+                    </ul>
+
+
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    
+
+    <div id="dvBingMap">
+        <div class="resultsDiv" style="display: none;">
+            <div class="expand-button">
+                <a class="right controlBtn">
+                    <span class="off">EXPAND</span>
+                    <span class="on" style="display: none;">COLLAPSE</span>
+                    <span class="icon-icon_arrow arrow"></span>
+                </a>
+            </div>
+            <div id="dvResultsTxt">
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" id="txtZip" value="90802" />
+    <input type="hidden" id="ddlRange" value="5">
+</div>
+
+
+        </div>
+        <!-- Main content ends -->
+
+        <!-- Main footer starts -->
+        
+
+<footer class="footer">
+    <div class="container1">
+        <div class="row hidden-xs hidden-s">
+            <div class="col-lg-12 text-center">
+                <img class="footer-logo" src="/img/common/logo-footer.png" alt="" />
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-xs-12">
+                <ul class="hidden-xs hidden-s">
+                    <li><a class="" href="/OurApps.aspx">Mobile Apps</a></li>
+                    <li><a class="" href="/History.aspx">History</a></li>
+                    <li><a class="" href="/ContactUs.aspx">Contact Us</a></li>
+                    <li><a class="" href="/EmailPreferences.aspx">Sign-Up &amp; Email Settings</a></li>
+                    
+                    <li class="icon-footer"><a href="https://www.facebook.com/conoco" target="_blank"><span class="icon-facebook2"></span></a></li>
+                    <li class="icon-footer"><a href="https://twitter.com/conoco" target="_blank"><span class="icon-twitter"></span></a></li>
+                    <li class="icon-footer"><a href="https://www.instagram.com/conoco/" target="_blank"><span class="icon-instagram"></span></a></li>
+                    <li class="icon-footer"><a href="https://www.youtube.com/user/conoco" target="_blank"><span class="icon-play"></span></a></li>
+                </ul>
+
+                <p>
+                    Conoco® and its respective logos are registered trademarks owned by Phillips 66 Company. KickBack and its respective logos are registered trademarks of KickBack Points, LLC. Other products and logos mentioned herein may be trademarks of their respective owners. <br />© 2015 Phillips 66 Company.<br />                    
+                </p>
+
+                
+                
+                <a id="Footer_hplTermsConditions" class="terms-link hidden-xs hidden-s" href="http://www.phillips66.com/EN/utilities/Pages/terms.aspx" target="_blank">Terms &amp; Conditions</a>
+                <a id="Footer_hplPrivacyPolicy" class="terms-link hidden-xs hidden-s" href="http://www.phillips66.com/EN/utilities/Pages/privacy.aspx" target="_blank">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+        <!-- Main footerends -->
+
+    </div>
+    <!-- Container ends  -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/global.js"></script>
+    <script src="js/findStation.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/station-finder/common.js"></script>
+    <script type="text/javascript" src="js/station-finder/BingMapsHelper.js"></script>
+    <script type="text/javascript" src="js/station-finder/BingFilters.js"></script>
+    <script type="text/javascript" src="js/station-finder/WeatherHelper.js"></script>
+    <script type="text/javascript" src="js/station-finder/Default.js"></script>
+    <script type="text/javascript" src="js/getDistance.js"></script>
+        <input name="ctl00$BingMapsKey" type="hidden" id="BingMapsKey" value="AnORHnP-GcBmnb6cK-sMog-LLyulWfvrqG46bPe0UDE5nWLJ9UJy9YPfwByF9N37" />
+
+</body>
+
+</html>
